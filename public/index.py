@@ -2,6 +2,7 @@
 from yamata.request.request import Request
 from yamata.router.router import Router
 from yamata.middleware.middleware_handler import MiddlewareHandler
+from yamata.controller.reflection import Reflection
 
 is_init = False
 
@@ -20,8 +21,9 @@ def application(env, response):
         response('404 NotFound', [('Content-Type', 'text/html')])
         return [404]
 
+    s = Reflection.reflect('app.controller' + route.controller)
     response('200 OK', [('Content-Type', 'text/html')])
-    return ["Hello World"]
+    return [bytes("data:"+s, encoding='utf8')]
 
 
 def init_data():
