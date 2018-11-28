@@ -3,4 +3,4 @@ from yamata.router.router_group import RouterGroup
 
 router = RouterGroup()
 
-router.get('/home', 'HomeController@hello')
+router.get('/home', 'HomeController@hello').middleware('test')

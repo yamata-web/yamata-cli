@@ -1,1 +1,1 @@
-from app.controller.homecontroller import HomeController
+from app.controller.HomeController import HomeController
